@@ -1,0 +1,62 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :product_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :artist %>
+    <%= form.text_field :artist, id: :product_artist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category, id: :product_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url, id: :product_image_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :product_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag1 %>
+    <%= form.text_field :tag1, id: :product_tag1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag2 %>
+    <%= form.text_field :tag2, id: :product_tag2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag3 %>
+    <%= form.text_field :tag3, id: :product_tag3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag4 %>
+    <%= form.text_field :tag4, id: :product_tag4 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
