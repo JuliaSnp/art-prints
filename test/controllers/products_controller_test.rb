@@ -19,6 +19,7 @@ test "should get index" do
     get new_product_url
     assert_response :success
   end
+  
 
   test "should create product" do
     assert_difference('Product.count') do
@@ -52,12 +53,6 @@ test "should get index" do
 
  assert_redirected_to products_url
  end
-test "should destroy product" do
-assert_difference('Product.count', -1) do
-delete product_url(@product)
-end
-assert_redirected_to products_url
-end
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
