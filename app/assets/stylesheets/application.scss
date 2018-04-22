@@ -19,12 +19,16 @@
  #banner {
  position: relative;
  min-height: 40px;
- background: #9c9;
+ background-image: url('art_prints-banner.png');
  padding: 10px;
  border-bottom: 2px solid;
- font: small-caps 40px/40px "Times New Roman", serif;
- color: #282;
+ font: small-caps 40px/40px "Verdana", serif;
+ //color: green;
  text-align: center;
+ 
+ #user-search-form {
+     float: right;
+ }
 
  img {
  position: absolute;
@@ -49,7 +53,7 @@
  }
 
  #columns {
- background: #141;
+ //background: #989898;
  display: flex;
 
  #main {
@@ -60,7 +64,8 @@
 
  #side {
  padding: 1em 2em;
- background: #141;
+ background: #333;
+ width: 140px;
  
  form, div {
  display: inline;
@@ -75,7 +80,7 @@
  color: white;
 
  table {
- border-top: 1px dotted #595;
+ border-top: 1px;
  border-bottom: 1px dotted #595;
  margin-bottom: 10px;
  }
@@ -88,7 +93,7 @@
  list-style: none;
 
  a {
- color: #bfb;
+ color: #fff;
  font-size: small;
  }
  }
@@ -105,10 +110,46 @@
  @media all and (max-width: 500px) {
  #banner {
  height: 1em;
-
+ }
  }
 
  #banner .title {
  display: none;
  }
+ 
+ .depot_form {
+  fieldset {
+    background: #efe;
+    
+    legend {
+      color: #dfd;
+      background: #989898;
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+     
+    }
+    div {
+      margin-bottom: 0.3em;
+     
+    } 
+  }
+form { 
+ label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
  }
+    select, textarea, input {
+      margin-left: 0.5em;
+}
+    .submit {
+      margin-left: 4em;
+}
+    br {
+      display: none
+    }
+}
+}

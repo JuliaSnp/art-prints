@@ -2,11 +2,34 @@
 
 <h1>Products</h1>
 
+<%# http://www.rymcmahon.com/articles/2
+
+ Search form %>
+ 
+<%= form_tag(products_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "title, artist, category etc" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<br>
+
+<%# http://www.rymcmahon.com/articles/2
+
+//message to show in case the search retruns no results %>
+
+<% if @products.blank? %>
+  <h4>No products found. Try a different search term. <%= params[:search] %>.</h4>
+<% end %>
+
+<br>
+
 <table>
 <% @products.each do |product| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td>
+<td>
 <%= image_tag(product.image_url, class: 'list_image') %>
+</td>
 </td>
 <td class="list_description">
 <dl>

@@ -54,5 +54,7 @@ Rails.application.configure do
 
 
 
-  config.web_console.whitelisted_ips = '188.141.32.60'
+  config.web_console.whitelisted_ips = '188.141.69.68'
 end
+
+ 

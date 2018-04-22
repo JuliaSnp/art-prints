@@ -5,6 +5,14 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+   # http://www.rymcmahon.com/articles/2
+   # if search parameters match, list matching items in descending order 
+   #if none of the items match still display all along with the "none found" message, as per products/index.html.erb
+    if params[:search]
+      @products = Product.search(params[:search]).order("title DESC")
+    else
+      @products = Product.all.order("title DESC")
+    end
   end
 
   # GET /products/1
@@ -78,4 +86,14 @@ end
     def product_params
       params.require(:product).permit(:title, :artist, :category, :image_url, :price, :tag1, :tag2, :tag3, :tag4)
     end
-end
+    
+    def who_bought
+      @product = Product.find(params[:id])
+      @latest_order = @product.orders.order(:updated_at).last 
+      if stale?(@latest_order)
+        respond_to do |format| 
+          format.atom
+        end
+      end
+    end
+  end
